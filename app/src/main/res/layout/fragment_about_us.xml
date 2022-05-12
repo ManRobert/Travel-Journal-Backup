@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_4"
+        android:orientation="vertical"
+        tools:context=".View.ui.aboutus.AboutUsFragment">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:contentDescription="@string/nav_header_desc"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            app:srcCompat="@mipmap/destination" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="566dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/this_application_is_a_journal_where_you_can_store_all_the_trips_you_have_been_on_or_you_would_like_to_n_n_therefore_you_can_create_your_own_trip_where_you_can_add_its_name_destination_and_price_also_you_can_select_the_period_in_which_you_have_been_gone_or_you_would_like_to_go_and_give_that_journey_a_rating_from_1_star_to_5_for_selecting_an_image_you_would_have_to_copy_an_url_from_the_internet_n_n_you_can_select_which_trips_are_your_favourite_ones_and_saving_them_into_favourite_trips"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>

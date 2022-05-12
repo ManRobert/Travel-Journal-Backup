@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.traveljournal.View.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.example.traveljournal.View.ui.aboutus.AboutUsFragment"
+        android:label="About us"
+        tools:layout="@layout/fragment_about_us" />
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.traveljournal.View.ui.contact.ContactFragment"
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" />
+
+    <fragment
+        android:id="@+id/fab"
+        android:name="com.example.traveljournal.View.ui.addTrip.AddTripFragment"
+        android:label="Add a trip"
+        tools:layout="@layout/fragment_add_trip"/>
+
+    <fragment
+        android:id="@+id/fav_trips"
+        android:name="com.example.traveljournal.View.ui.favTrips.FavouriteTripsFragment"
+        android:label="Fav Trips"
+        tools:layout="@layout/fragment_fav_trips" />
+
+    <fragment
+        android:id="@+id/details"
+        android:name="com.example.traveljournal.View.ui.details.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_details"
+
+        />
+
+    <!--<fragment
+        android:id="@+id/nav_share"
+        android:name=""
+        android:label="Share"
+        tools:layout=""/>-->
+
+</navigation>
