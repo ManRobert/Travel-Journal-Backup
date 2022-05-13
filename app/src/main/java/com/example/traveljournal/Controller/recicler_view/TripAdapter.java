@@ -1,18 +1,14 @@
 package com.example.traveljournal.Controller.recicler_view;
-
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.traveljournal.Model.Trip;
 import com.example.traveljournal.R;
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 public class TripAdapter extends RecyclerView.Adapter<TripViewHolder> {

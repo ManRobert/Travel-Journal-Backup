@@ -32,7 +32,7 @@ public class DetailsFragment extends Fragment {
         if (getArguments() != null) {
             name = getArguments().getString("name");
             if (name.equals(""))
-                name = "Uset name";
+                name = "Unset name";
 
             destination = getArguments().getString("destination");
             if (destination.equals(""))

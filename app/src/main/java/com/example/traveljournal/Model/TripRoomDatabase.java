@@ -23,8 +23,7 @@ public abstract class TripRoomDatabase extends RoomDatabase {
             synchronized (TripRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            // !!!!!!                                               !!!!!!
-                            TripRoomDatabase.class, "trip_database_test6").allowMainThreadQueries()
+                            TripRoomDatabase.class, "trip_table_prezentare_proiect").allowMainThreadQueries()
                             .build();
                 }
             }

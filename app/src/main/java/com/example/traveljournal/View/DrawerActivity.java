@@ -1,13 +1,14 @@
 package com.example.traveljournal.View;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.traveljournal.Model.Trip;
 import com.example.traveljournal.Model.TripViewModel;
@@ -16,7 +17,6 @@ import com.example.traveljournal.View.ui.details.DetailsFragment;
 import com.example.traveljournal.View.ui.details.FragmentHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
@@ -26,6 +26,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DrawerActivity extends AppCompatActivity {
 
@@ -33,17 +34,19 @@ public class DrawerActivity extends AppCompatActivity {
     private TextView number;
     private CheckBox bookmark;
     private TripViewModel tripViewModel;
+    private RecyclerView recyclerViewTrips;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        View headerView = navigationView.getHeaderView(0);
+       // NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        //View headerView = navigationView.getHeaderView(0);
         handleNavigationDrawer();
         handleFabButton();
         bookmark = findViewById(R.id.bookmark);
         tripViewModel = new ViewModelProvider(this).get(TripViewModel.class);
+        recyclerViewTrips = findViewById(R.id.recyclerViewTrips);
     }
 
     private void handleNavigationDrawer() {
@@ -97,20 +100,20 @@ public class DrawerActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void addFavouriteTrip(View view) {
         boolean checked = ((CheckBox) view).isChecked();
         if (checked) {
             CheckBox idText = view.findViewById(R.id.bookmark);
             int id = Integer.parseInt(idText.getText().toString());
-            tripViewModel.updateFavourite(id, 1);
             ((CheckBox) view).setButtonDrawable(R.drawable.favourite1);
+            tripViewModel.updateFavourite(id, 1);
+
         } else {
             CheckBox idText = view.findViewById(R.id.bookmark);
             int id = Integer.parseInt(idText.getText().toString());
-            tripViewModel.updateFavourite(id, 0);
             ((CheckBox) view).setButtonDrawable(R.drawable.favourite0);
+            tripViewModel.updateFavourite(id, 0);
         }
     }
 
@@ -131,5 +134,24 @@ public class DrawerActivity extends AppCompatActivity {
         detailsFragment.setArguments(bundle);
         Navigation.findNavController(this, R.id.nav_host_fragment_content_drawer).navigate(R.id.details);
         FragmentHelper.displayFragment(DrawerActivity.this, R.id.nav_host_fragment_content_drawer, detailsFragment);
+    }
+
+
+    public void settings(View view)
+    {
+        Toast.makeText(DrawerActivity.this, "It will be implemented soon!", Toast.LENGTH_SHORT).show();
+
+    }
+    public void editUsername(MenuItem item) {
+        Navigation.findNavController(this, R.id.nav_host_fragment_content_drawer).navigate(R.id.settings);
+    }
+
+    public void share(View view)
+    {
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_SUBJECT, "Share link");
+        share.putExtra(Intent.EXTRA_TEXT,"http://linkfordownload_Travel_Journal(nonfunctional)");
+        startActivity(Intent.createChooser(share, "Share using"));
     }
 }

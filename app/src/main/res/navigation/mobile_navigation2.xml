@@ -40,13 +40,18 @@
         android:name="com.example.traveljournal.View.ui.details.DetailsFragment"
         android:label="Details"
         tools:layout="@layout/fragment_details"
-
         />
 
-    <!--<fragment
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.traveljournal.View.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings"/>
+
+    <fragment
         android:id="@+id/nav_share"
-        android:name=""
+        android:name="com.example.traveljournal.View.ui.share.ShareFragment"
         android:label="Share"
-        tools:layout=""/>-->
+        tools:layout="@layout/fragment_share"/>
 
 </navigation>

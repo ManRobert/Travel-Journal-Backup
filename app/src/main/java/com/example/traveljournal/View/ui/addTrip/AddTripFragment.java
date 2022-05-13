@@ -1,5 +1,4 @@
 package com.example.traveljournal.View.ui.addTrip;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -11,18 +10,15 @@ import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.traveljournal.Model.Trip;
 import com.example.traveljournal.Model.TripViewModel;
 import com.example.traveljournal.R;
 import com.example.traveljournal.View.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.slider.Slider;
-
 import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.Currency;
@@ -103,7 +99,6 @@ public class AddTripFragment extends Fragment {
             datePickerDialog.show();
         });
 
-        //save button
         save.setOnClickListener(view -> {
             String name = editTextName.getText().toString();
             String destination = editTextDestination.getText().toString();
@@ -121,16 +116,8 @@ public class AddTripFragment extends Fragment {
             image = stringImg.getText().toString();
             Trip trip = new Trip(name, destination, tripType, price, startDate, endDate, rate, image);
             tripViewModel.insert(trip);
-            tripViewModel.getTrips().observe(requireActivity(), trips -> {
-                    /*update the adapter => adapter.setWords(words);
-                    TripAdapter tripAdapter = new TripAdapter(tripViewModel.getTrips());
-                    RecyclerView recyclerView = requireActivity().findViewById(R.id.fragment_home_id);
-                    recyclerView.setAdapter(new TripAdapter(tripViewModel.getTrips().getValue()));*/
-
-                HomeFragment.setTrips(tripViewModel.getTrips().getValue());
-            });
+            tripViewModel.getTrips().observe(requireActivity(), trips -> HomeFragment.setTrips(tripViewModel.getTrips().getValue()));
             Toast.makeText(getContext(), "Trip added!", Toast.LENGTH_SHORT).show();
-
         });
     }
 }

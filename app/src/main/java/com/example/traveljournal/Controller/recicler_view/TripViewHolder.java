@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.traveljournal.R;
 
+
 public class TripViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView textViewName, textViewDestination, textViewPrice, textTripId;

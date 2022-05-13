@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
-@Entity(tableName = "trip_table_test6")
+@Entity(tableName = "trip_table_prezentare_proiect")
 public class Trip {
     @PrimaryKey(autoGenerate = true)
     @NotNull
@@ -88,44 +88,42 @@ public class Trip {
         return price;
     }
 
-    public void setPrice(int price) {
+    /*public void setPrice(int price) {
         this.price = price;
-    }
+    }*/
 
     @NotNull
     public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(@NotNull String startDate) {
+    /*public void setStartDate(@NotNull String startDate) {
         this.startDate = startDate;
-    }
+    }*/
 
     @NotNull
     public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(@NotNull String endDate) {
+    /*public void setEndDate(@NotNull String endDate) {
         this.endDate = endDate;
-    }
+    }*/
 
     public float getRate() {
         return rate;
     }
 
-    public void setRate(float rate) {
+    /*public void setRate(float rate) {
         this.rate = rate;
-    }
+    }*/
 
     @NotNull
     public String getImage() {
         return image;
     }
 
-    public void setImage(@NotNull String image) {
+    /*public void setImage(@NotNull String image) {
         this.image = image;
-    }
-
-
+    }*/
 }

@@ -30,6 +30,8 @@ public class FavouriteTripsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fav_trips, container, false);
         favTripViewModel = new ViewModelProvider(this).get(TripViewModel.class);
         recyclerViewTrips = view.findViewById(R.id.recyclerViewFavTrips);
+        favTrips = favTripViewModel.getAllFavouriteTrips();
+        favTripViewModel.getFavouriteTrips().observe(requireActivity(), trips -> setFavTrips(favTripViewModel.getFavouriteTrips().getValue()));
         setupRecyclerViewTrips();
         favTripViewModel.getFavouriteTrips().observe(requireActivity(), trips -> setFavTrips(favTripViewModel.getFavouriteTrips().getValue()));
         return view;
@@ -46,11 +48,6 @@ public class FavouriteTripsFragment extends Fragment {
         FavouriteTripsFragment.favTrips = favTrips;
     }
 
-
-    private void getTrips() {
-        favTrips = favTripViewModel.getAllFavouriteTrips();
-    }
-
     private TripAdapter getTripsAdapter() {
         return new TripAdapter(favTrips);
     }
@@ -61,8 +58,6 @@ public class FavouriteTripsFragment extends Fragment {
     }
 
     private void setupRecyclerViewTrips() {
-        if (favTrips.size() == 0)
-            getTrips();
         setupLayoutManager();
         recyclerViewTrips.setAdapter(getTripsAdapter());
     }
